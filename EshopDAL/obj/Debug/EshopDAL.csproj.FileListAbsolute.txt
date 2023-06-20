@@ -1,0 +1,11 @@
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\bin\Debug\EshopDAL.dll.config
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\bin\Debug\EshopDAL.dll
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\bin\Debug\EshopDAL.pdb
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\bin\Debug\EntityFramework.dll
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\bin\Debug\EntityFramework.xml
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\obj\Debug\EshopDAL.csproj.CoreCompileInputs.cache
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\obj\Debug\EshopDAL.csproj.CopyComplete
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\obj\Debug\EshopDAL.dll
+C:\Users\Training1\source\repos\Eshoppy\EshopDAL\obj\Debug\EshopDAL.pdb

@@ -1,0 +1,11 @@
+﻿@{
+    if (Session["CustEmail"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    }
+
+}

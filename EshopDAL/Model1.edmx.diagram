@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0c397afefaf741c4ae79245788a82eb1" Name="Diagram1">
+        <EntityTypeShape EntityType="EShoppyDBModel.Catogory" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EShoppyDBModel.Customer" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EShoppyDBModel.Order" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EShoppyDBModel.Product" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EShoppyDBModel.ShoppingCart" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="EShoppyDBModel.FK__Products__Catego__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="EShoppyDBModel.FK__Orders__Customer__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="EShoppyDBModel.FK__ShoppingC__Custo__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="EShoppyDBModel.FK__Orders__ProductI__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="EShoppyDBModel.FK__ShoppingC__Produ__2F10007B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

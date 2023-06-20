@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EShoppyDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Catogories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CategoryDescription" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="250" />
+    <Property Name="City" Type="varchar" MaxLength="40" />
+    <Property Name="Country" Type="varchar" MaxLength="40" />
+    <Property Name="EmailId" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+    <Property Name="DeliveryAddress" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ProductId" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="ProductDescription" Type="varchar" MaxLength="250" />
+    <Property Name="ProductPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="CategoryId" Type="varchar" MaxLength="15" />
+    <Property Name="ExistsInStock" Type="bit" />
+  </EntityType>
+  <EntityType Name="ShoppingCarts">
+    <Key>
+      <PropertyRef Name="ShoppingCartId" />
+    </Key>
+    <Property Name="ShoppingCartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="varchar" MaxLength="15" />
+    <Property Name="CustomerId" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <Association Name="FK__Orders__Customer__2B3F6F97">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__ProductI__2C3393D0">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__Catego__276EDEB3">
+    <End Role="Catogories" Type="Self.Catogories" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catogories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ShoppingC__Custo__300424B4">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="ShoppingCarts" Type="Self.ShoppingCarts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="ShoppingCarts">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ShoppingC__Produ__2F10007B">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="ShoppingCarts" Type="Self.ShoppingCarts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ShoppingCarts">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EShoppyDBModelStoreContainer">
+    <EntitySet Name="Catogories" EntityType="Self.Catogories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShoppingCarts" EntityType="Self.ShoppingCarts" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Orders__Customer__2B3F6F97" Association="Self.FK__Orders__Customer__2B3F6F97">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__ProductI__2C3393D0" Association="Self.FK__Orders__ProductI__2C3393D0">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__Catego__276EDEB3" Association="Self.FK__Products__Catego__276EDEB3">
+      <End Role="Catogories" EntitySet="Catogories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ShoppingC__Custo__300424B4" Association="Self.FK__ShoppingC__Custo__300424B4">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="ShoppingCarts" EntitySet="ShoppingCarts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ShoppingC__Produ__2F10007B" Association="Self.FK__ShoppingC__Produ__2F10007B">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ShoppingCarts" EntitySet="ShoppingCarts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
